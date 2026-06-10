@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Team | JayyMadd Clicke Ltd</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  {% include 'includes/_navbar.html' %}
+
+  <section class="section">
+    <h2 class="section-title">Our Leadership</h2>
+    <div class="org-chart">
+      <div class="glass-card ceo">
+        <h3>Jamaludeen Madaki</h3>
+        <p>CEO & Lead AI Architect</p>
+      </div>
+      <div class="level">
+        <div class="glass-card">
+          <h4>Aisha Bello</h4>
+          <p>Head of Data Science</p>
+        </div>
+        <div class="glass-card">
+          <h4>Biswas Kumar</h4>
+          <p>CTO & Full-Stack Lead</p>
+        </div>
+        <div class="glass-card">
+          <h4>Yu Hui Len</h4>
+          <p>Project Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Core Team</h2>
+    <div class="team-grid">
+      <div class="glass-card member">
+        <h4>Nishant Mishra</h4>
+        <p>Machine Learning Engineer</p>
+      </div>
+      <div class="glass-card member">
+        <h4>Jmaludeen Madaki</h4>
+        <p>Frontend Developer</p>
+      </div>
+      <div class="glass-card member">
+        <h4>Challapalli Yesu Narayana</h4>
+        <p>Mobile App Developer</p>
+      </div>
+    </div>
+  </section>
+
+  {% include 'includes/_footer.html' %}
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
