@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JayyMadd Clicke Ltd | AI & Tech Solutions</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  {% include 'includes/_navbar.html' %}
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="glass-card hero-content">
+      <h1>Building the Future with <span class="green">AI</span>, <span class="blue">Code</span> & <span class="black">Vision</span></h1>
+      <p>Machine Learning | Data Science | Web & Mobile Apps | Project Management</p>
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="glass-card">
+      <h2>About Us</h2>
+      <p>JayyMadd Clicke Ltd is a cutting-edge AI technology company based in Kaduna, Nigeria. We specialize in machine learning, data science, full-stack web & mobile development, and end-to-end product/project management.</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="glass-card service-item">
+        <h3>🤖 Machine Learning</h3>
+        <p>Predictive models, NLP, computer vision.</p>
+      </div>
+      <div class="glass-card service-item">
+        <h3>📊 Data Science</h3>
+        <p>Analytics, visualization, insights.</p>
+      </div>
+      <div class="glass-card service-item">
+        <h3>🌐 Web Development</h3>
+        <p>Flask, Django, React, Node.js.</p>
+      </div>
+      <div class="glass-card service-item">
+        <h3>📱 Mobile Apps</h3>
+        <p>Flutter, React Native, Swift, Kotlin.</p>
+      </div>
+      <div class="glass-card service-item">
+        <h3>📋 Project Management</h3>
+        <p>Agile, Scrum, PMBOK, JIRA.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Works -->
+  <section id="works" class="section">
+    <h2 class="section-title">Past Works</h2>
+    <div class="works-grid">
+      <div class="glass-card work-item">
+        <h3>FarmAI</h3>
+        <p>AI crop disease detection for Nigerian farmers.</p>
+      </div>
+      <div class="glass-card work-item">
+        <h3>HealthTrack Pro</h3>
+        <p>Mobile app for patient monitoring.</p>
+      </div>
+      <div class="glass-card work-item">
+        <h3>EduLearn Platform</h3>
+        <p>Web-based LMS with analytics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Repos -->
+  <section id="github" class="section">
+    <h2 class="section-title">Open Source on GitHub</h2>
+    <div class="github-grid">
+      <a href="https://github.com/jayymadd" target="_blank" class="glass-card repo">
+        <h3>jayymadd/ml-models</h3>
+        <p>Pre-trained ML models for African datasets</p>
+      </a>
+      <a href="https://github.com/jayymadd" target="_blank" class="glass-card repo">
+        <h3>jayymadd/agri-ai</h3>
+        <p>Computer vision for crop health</p>
+      </a>
+      <a href="https://github.com/jayymadd" target="_blank" class="glass-card repo">
+        <h3>jayymadd/data-pipeline</h3>
+        <p>ETL pipeline for local businesses</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="glass-card contact-form">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert {{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action="{{ url_for('contact') }}" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Book Meeting Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="close" onclick="closeBooking()">&times;</span>
+      <h2>Book a Meeting</h2>
+      <p>Schedule a 30-minute consultation with our AI & tech experts.</p>
+      <div id="calendly-inline-widget" style="min-height: 600px;"></div>
+    </div>
+  </div>
+
+  {% include 'includes/_footer.html' %}
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
